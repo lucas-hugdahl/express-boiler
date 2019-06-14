@@ -3,11 +3,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+
+//There is logic in Config to determin the enviroment settings
 const CONFIG = require('./config/config');
-mongoose.connect(CONFIG.MLAB_AUTH, { useNewUrlParser: true });
+mongoose.connect(CONFIG.DB_AUTH, { useNewUrlParser: true });
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/Users');
+const exampleRouter = require('./routes/example');
 const app = express();
 
 app.use(logger('dev'));			
@@ -24,8 +26,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
-
+app.use('/example', exampleRouter);
 
 
 module.exports = app;

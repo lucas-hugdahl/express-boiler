@@ -8,10 +8,13 @@ let tranport = nodemailer.createTransport({
 
 const mailOptions = {
 	from: 'donotreply@qudocreative.io', // sender address
-	to: 'lucashugdahl@hotmail.com', // list of receivers
-	subject: 'Password Reset', // Subject line
+	to: 'info@fake.com', // list of receivers
+	subject: 'Hello', // Subject line
 	html: '<h1>this is a test mail.</h1>'// plain text body
 };
+
+
+//Need to export this function and make it promise based
 
 transporter.sendMail(mailOptions, function (err, info) {
 	if (err)
