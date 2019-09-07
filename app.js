@@ -9,7 +9,6 @@ const CONFIG = require('./config/config');
 mongoose.connect(CONFIG.DB_AUTH, { useNewUrlParser: true });
 
 const indexRouter = require('./routes/index');
-const exampleRouter = require('./routes/example');
 const app = express();
 
 app.use(logger('dev'));			
@@ -26,7 +25,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', indexRouter);
-app.use('/example', exampleRouter);
+// app.use('/example', exampleRouter);
 
 
 module.exports = app;
